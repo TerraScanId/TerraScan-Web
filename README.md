@@ -1,4 +1,4 @@
-<p align="center"><a href="https://terrascan.rf.gd" target="_blank"><img src="http://terrascan.rf.gd/assets/images/logo.svg" width="400" alt="TerraScan Logo"></a></p>
+<p align="center"><a href="https://terrascan.rf.gd" target="_blank"><img src="https://terrascan.rf.gd/assets/images/logo.svg" width="400" alt="TerraScan Logo"></a></p>
 
 ## TerraScan
 
