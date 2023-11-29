@@ -1,0 +1,584 @@
+/*--------------------------------------------------------------------- File Name: responsive.css ---------------------------------------------------------------------*/
+
+
+/*------------------------------------------------------------------- 991px x 768px ---------------------------------------------------------------------*/
+/* image logo */
+.image-container {
+    display: flex;
+    align-items: center;
+    max-width:  70%;
+  
+  }
+  
+  
+  @media (max-width: 768px) {
+    .image-container {
+      display: flex;
+      align-items: center;
+      width: 60px;
+    
+    
+    }
+      .c-img2{
+        display: none;
+      }
+  
+      .image-container img {
+        margin-right: 0;
+        max-width: 60%; /* Maksimum lebar gambar (diperkecil) */
+    }
+  }
+  
+  @media (max-width: 200px) {
+      .image-container {
+          /* flex-direction: column; */
+          /* align-items: flex-start; Posisi kiri */
+          text-align: left;
+        
+      }
+      .c-img2{
+        display: none;
+      }
+  
+      .image-container img {
+          margin-right: 0;
+          max-width: 60%; /* Maksimum lebar gambar (diperkecil) */
+      }
+  }
+  /* all move */
+  @media (max-width: 830px) {
+  
+    .image-container {
+      display: flex;
+      align-items: center;
+      max-width:  50%;
+    
+    }
+    
+    .hero_area {
+      border-radius: 0 0 250px 0;
+    }
+  
+    .slider_section .detail-box {
+      margin-top: 45px;
+    }
+  
+    .about_section {
+      border-radius: 150px 0 150px 0;
+    }
+  
+    .about_section .img-box {
+      margin-top: 45px;
+      width: 300px; /* Sesuaikan lebar dan tinggi dengan gambar lingkaran */
+      height: 300px;
+    }
+  
+    .contact_section .row {
+      flex-direction: column-reverse;
+    }
+  
+    .contact_section .map_container {
+      margin-left: 0;
+      margin-bottom: 45px;
+      height: 375px;
+    }
+  
+    .info_section .row>div:nth-child(3) {
+      margin-bottom: 35px;
+    }
+  
+    .info_section .row>div {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+  
+    }
+  
+    .info_section .info_links {
+      align-items: center;
+    }
+  
+    .info_section form input {
+      text-align: center;
+    }
+    .c-img2{
+      display: none;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .hero_area {
+      border-radius: 0 0 250px 0;
+    }
+  
+    .slider_section .detail-box {
+      margin-top: 45px;
+    }
+  
+    .about_section {
+      border-radius: 100px 0 100px 0;
+    }
+  
+    .about_section .img-box {
+      margin-top: 45px;
+      width: 150px; /* Sesuaikan lebar dan tinggi dengan gambar lingkaran */
+      height: 150px;
+    }
+  
+    .contact_section .row {
+      flex-direction: column-reverse;
+    }
+  
+    .contact_section .map_container {
+      margin-left: 0;
+      margin-bottom: 45px;
+      height: 375px;
+    }
+  
+    .info_section .row>div:nth-child(3) {
+      margin-bottom: 35px;
+    }
+  
+    .info_section .row>div {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+  
+    }
+  
+    .info_section .info_links {
+      align-items: center;
+    }
+  
+    .info_section form input {
+      text-align: center;
+    }
+  }
+  
+  
+  @media (max-width: 576px) {}
+  
+  @media (max-width: 480px) {}
+  
+  @media (max-width: 420px) {}
+  
+  @media (max-width: 376px) {}
+  @media (max-width: 990px) {
+    .about_section {
+      border-radius: 150px 0 150px 0;
+    }
+  
+    .about_section .img-box {
+      margin-top: 45px;
+      width: 350px; /* Sesuaikan lebar dan tinggi dengan gambar lingkaran */
+      height: 350px;
+    }
+  }
+  
+  @media (min-width: 1200px) {
+    .container {
+      max-width: 1170px;
+    }
+  }
+  
+  
+  
+  
+  /* image logo end */
+  @media (min-width: 1200px) and (max-width: 1342px) {
+    
+
+    .navigation.navbar-dark .navbar-nav .nav-link {
+      padding: 0 19px;
+    }
+  
+    .d_small {
+      display: none;
+    }
+  }
+  
+  @media (min-width: 992px) and (max-width: 1199px) {
+    .navigation.navbar-dark .navbar-nav .nav-link {
+      padding: 0px 8px;
+    }
+  
+    .d_small {
+      display: none;
+    }
+  
+    .text-bg h1 {
+      font-size: 86px;
+      line-height: 100px;
+      padding-bottom: 11px;
+    }
+  
+    .choose_text h3 {
+      font-size: 18px;
+    }
+  
+    .choose .titlepage {
+      padding-bottom: 40px;
+    }
+  
+    .choose .read_more {
+      margin-top: 30px;
+    }
+  }
+  
+  @media (min-width: 768px) and (max-width: 991px) {
+    .navigation.navbar-dark .navbar-nav .nav-link {
+      padding: 0px 12px;
+    }
+  
+    .banner_main {
+      min-height: 605px;
+    }
+  
+    .three_box {
+      margin-top: -102px;
+    }
+  
+    .label .text-wrapper {
+      /* width: 500px; */
+      font-family: "DM Sans-Bold", Helvetica;
+      font-weight: 600;
+      color: #204e51;
+      font-size: 40px;
+      letter-spacing: 0;
+      line-height: 83.2px;
+    } 
+  
+  
+    
+  
+    .padding_with {
+      max-width: inherit;
+    }
+  
+    .choose .titlepage {
+      padding-bottom: 40px;
+    }
+  
+    .choose_img {
+      margin-right: 0;
+      margin-top: 30px;
+      margin-bottom: 30px;
+    }
+  
+    .logo {
+      width: 60px;
+    }
+  
+    .text-bg h1 {
+      font-size: 49px;
+      line-height: 65px;
+      padding-bottom: 10px;
+    }
+  
+    .product_box figure img {
+      height: 200px;
+    }
+  
+    .navigation.navbar {
+      padding-top: 12px !important;
+    }
+  
+    ul.social_icon li a {
+      width: 33px;
+      margin: 0 1px;
+      height: 33px;
+    }
+  
+    ul.location_icon li {
+      font-size: 13px;
+    }
+  
+    .titlepage h2 {
+      font-size: 33px;
+    }
+  
+    .d_none {
+      display: block;
+    }
+  
+    .d_small {
+      display: none;
+    }
+  }
+  
+  @media (min-width: 576px) and (max-width: 767px) {
+    .logo {
+      width: 50px;
+    }
+  
+    .d_none {
+      display: none;
+    }
+  
+    .d_small {
+      display: block;
+    }
+  
+    .text-bg h1 {
+      font-size: 50px;
+      line-height: 40px;
+      padding-bottom: 25px;
+      margin-top: 50px;
+    }
+  
+    .text-bg {
+      padding-left: 0px;
+      padding-bottom: 30px;
+    }
+  
+    .border_right {
+      border-right: inherit;
+    }
+  
+    .padding_with {
+      max-width: inherit;
+    }
+  
+    .choose .titlepage {
+      padding-bottom: 40px;
+    }
+  
+    .choose_img {
+      margin-right: 0;
+      margin-top: 30px;
+      margin-bottom: 30px;
+    }
+  
+    .padding_left0 {
+      padding-left: 15px;
+    }
+  
+    .padding_right0 {
+      padding-right: 15px;
+    }
+  
+    .box_text {
+      margin-top: 30px;
+      box-shadow: #ddd 0px 0px 7px 0px;
+    }
+  
+    .padding_bottom2 {
+      padding-bottom: 30px;
+    }
+  
+    .titlepage h2 {
+      font-size: 34px;
+    }
+  
+    .about_img {
+      margin-bottom: 20px;
+    }
+  
+    ul.social_icon {
+      margin-bottom: 25px;
+    }
+  
+    .about_Carousel .test_box p {
+      padding-left: 47px;
+    }
+  
+    ul.location_icon li {
+      font-size: 17px;
+      padding-left: 13px;
+    }
+  
+    .margin_boot {
+      margin-bottom: 20px;
+    }
+  
+    .navigation.navbar {
+      float: right;
+      display: inherit !important;
+      padding: 0;
+      width: 100%;
+      padding-top: 12px;
+    }
+  
+    .navigation .navbar-collapse {
+      background: #000;
+      padding: 20px;
+      margin-top: 510px;
+      position: absolute;
+      width: 100%;
+      z-index: 999;
+    }
+  
+    .navigation.navbar-dark .navbar-nav .nav-link {
+      padding: 10px 0;
+      color: #fff;
+    }
+  
+    .navigation.navbar-dark .navbar-toggler {
+      border: inherit;
+      float: right;
+      padding-top: 6px;
+    }
+  
+    .navigation.navbar-dark .navbar-toggler-icon {
+      background: url(../images/menu_icon.png);
+      background-repeat: no-repeat;
+    }
+  
+    .hottest .hottest_box {
+      margin-top: 30px
+    }
+  }
+  
+  @media (max-width: 575px) {
+    .header {
+      padding: 10px 0px 10px 0px;
+    }
+  
+    .logo {
+      width: 50px;
+    }
+  
+    .d_none {
+      display: none;
+    }
+  
+    .d_small {
+      display: block;
+    }
+  
+    .text-bg h1 {
+      font-size: 50px;
+      line-height: 68px;
+      padding-bottom: 10px;
+    }
+  
+    .three_box {
+      padding: 0 0px;
+    }
+  
+    .hottest .hottest_box {
+      margin-top: 30px
+    }
+  
+    .border_right {
+      border-right: inherit;
+    }
+  
+    .padding_bottom2 {
+      padding-bottom: 30px;
+    }
+  
+    .padding_with {
+      max-width: inherit;
+    }
+  
+    .choose .titlepage {
+      padding-bottom: 40px;
+    }
+  
+    .choose_img {
+      margin-right: 0;
+      margin-top: 30px;
+      margin-bottom: 30px;
+    }
+  
+    .padding_left0 {
+      padding-left: 15px;
+    }
+  
+    .padding_right0 {
+      padding-right: 15px;
+    }
+  
+    .box_text {
+      margin-top: 30px;
+      box-shadow: #ddd 0px 0px 7px 0px;
+    }
+  
+    .about_Carousel .test_box i {
+      margin-top: inherit;
+      z-index: inherit;
+      margin-bottom: 18px;
+    }
+  
+    .test_box {
+      padding: 64px 18px 40px 36px;
+    }
+  
+    .about_Carousel .test_box p {
+      padding-left: 3px;
+      margin-top: 20px;
+    }
+  
+    ul.social_icon {
+      margin-bottom: 25px;
+    }
+  
+    .margin_boot {
+      margin-bottom: 20px;
+    }
+  
+    .text-bg a {
+      max-width: 132px;
+      padding: 10px 0px;
+    }
+  
+    .titlepage h2 {
+      font-size: 27px;
+      line-height: 44px;
+    }
+  
+    ul.location_icon li {
+      padding-left: 0px;
+      display: block;
+      text-align: left;
+      margin-top: 20px;
+    }
+  
+    .about .about_box {
+      padding: 0px 0px 30px 0px;
+    }
+  
+    .about_box {
+      padding-top: 0;
+    }
+  
+    .about .about_box h3 {
+      font-size: 21px;
+    }
+  
+    .navigation.navbar {
+      float: right;
+      display: inherit !important;
+      padding: 0 !important;
+      width: 100%;
+      margin-top: -38px;
+    }
+  
+    .navigation .navbar-collapse {
+      background: #000;
+      padding: 20px;
+      margin-top: 525px;
+      position: absolute;
+      width: 100%;
+      z-index: 999;
+    }
+  
+    .navigation.navbar-dark .navbar-nav .nav-link {
+      padding: 10px 0;
+      color: #fff;
+    }
+  
+    .navigation.navbar-dark .navbar-toggler {
+      float: right;
+      margin-right: 2px;
+      border: inherit;
+    }
+  
+    .navigation.navbar-dark .navbar-toggler-icon {
+      background: url(../images/menu_icon.png);
+      background-repeat: no-repeat;
+    }
+  }
