@@ -359,115 +359,121 @@
 
         // Event listener untuk submit button
         $('#submitButton').click(async (event) => {
-            $('#submitButton').prop('disabled', true);
-            let file;
-            if(fileInput.files[0]) {
-                file = fileInput.files[0];
-            } else if (dropInput) {
-                file = dropInput
-            }
-
-            // Kondisi tidak ada input file
-            if (!file) {
-                const noImageMessage = $('<p>').text('Mohon masukkan gambar').css('color', 'red');
-                const previousMessage = $(imagePreview).find('p');
-                if (previousMessage.length) {
-                    previousMessage.remove();
+            try {
+                $('#submitButton').prop('disabled', true);
+                let file;
+                if(fileInput.files[0]) {
+                    file = fileInput.files[0];
+                } else if (dropInput) {
+                    file = dropInput
                 }
-                $(imagePreview).append(noImageMessage);
-                $('#submitButton').prop('disabled', false);
-                return;
-            }
 
-            // Cek apakah tipe file adalah gambar
-            if (!file.type.startsWith('image/')) {
-                const fileTypeErrorMessage = $('<p>').text('Tipe file tidak valid. Mohon pilih file gambar.').css('color', 'red');
-                const previousMessage = $(imagePreview).find('p');
-                if (previousMessage.length) {
-                    previousMessage.remove();
-                }
-                $(imagePreview).append(fileTypeErrorMessage);
-                $('#submitButton').prop('disabled', false);
-                return;
-            }
-
-            var kotaInput = $('#kota').val();
-            var iklimInput = $('#iklim').val();
-            var phInput = $('#ph').val();
-
-            var suhuInput = await getWeather(kotaInput);
-
-            // Mengatur gambar dan warna teks berdasarkan nilai iklimInput
-            var climateImage, climateColor;
-            if (iklimInput.toLowerCase() === 'musim panas') {
-                climateImage = "{{ asset('assets/images/ic_summer.svg') }}";
-                climateColor = "#EAC069";
-            } else if (iklimInput.toLowerCase() === 'musim hujan') {
-                climateImage = "{{ asset('assets/images/ic_rainy.svg') }}";
-                climateColor = "#7C95E4";
-            } else {
-                // Default jika iklimInput tidak cocok dengan kondisi di atas
-                climateImage = "{{ asset('assets/images/default_image.svg') }}";
-                climateColor = "#000000";
-            }
-
-            // Set nilai gambar dan warna teks
-            $('#climateTitle').css('color', climateColor);
-            $('#climate').html(iklimInput);
-            $('#climateImage').attr('src', climateImage);
-
-            // Animasi loading
-            const loadingAnimation = $('#loadingAnimation');
-            loadingAnimation.css('display', 'block');
-
-            // Load model
-            const model = await loadModel();
-
-            const reader = new FileReader();
-            reader.onload = async (e) => {
-                const image = new Image();
-                image.src = e.target.result;
-
-                image.onload = async () => {
-                    const canvas = document.createElement('canvas');
-                    canvas.width = 150;
-                    canvas.height = 150;
-                    const ctx = canvas.getContext('2d');
-                    ctx.drawImage(image, 0, 0, 150, 150);
-
-                    const tensor = tf.browser.fromPixels(canvas).toFloat().div(255);
-                    const expanded = tensor.expandDims(0);
-
-                    const predictions = await model.predict(expanded).data();
-                    const classList = ['Tanah Humus', 'Tanah vulkanik'];
-
-                    const maxPrediction = Math.max(...predictions);
-                    const predictedClass = classList[predictions.indexOf(maxPrediction)];
-                    const maxPredictionPercentage = (maxPrediction * 100).toFixed(2);
-
-                    console.log('Prediction:', predictions);
-                    console.log('Max Prediction:', maxPrediction);
-
-                    const recommendation = await getFinalResult(predictedClass, iklimInput, suhuInput);
-
-                    resultHeaderElement.textContent = 'Hasil: ';
-                    predictionElement.textContent = `${predictedClass}`;
-                    accuracyElement.textContent = `Akurasi: ${maxPredictionPercentage}%`;
-                    climateElement.textContent = `${iklimInput}`;
-                    temperatureElement.textContent = `${suhuInput}℃`;
-                    recommendationElement.style.whiteSpace = 'pre-line';
-                    recommendationElement.textContent = `${recommendation}`
-
-                    parameterBox.addClass('parameter-hidden');
-                    resultBox.removeClass('parameter-hidden');
-
-                    // Hide animasi loading
-                    loadingAnimation.css('display', 'none');
+                // Kondisi tidak ada input file
+                if (!file) {
+                    const noImageMessage = $('<p>').text('Mohon masukkan gambar').css('color', 'red');
+                    const previousMessage = $(imagePreview).find('p');
+                    if (previousMessage.length) {
+                        previousMessage.remove();
+                    }
+                    $(imagePreview).append(noImageMessage);
                     $('#submitButton').prop('disabled', false);
-                };
-            };
+                    return;
+                }
 
-            reader.readAsDataURL(file);
+                // Cek apakah tipe file adalah gambar
+                if (!file.type.startsWith('image/')) {
+                    const fileTypeErrorMessage = $('<p>').text('Tipe file tidak valid. Mohon pilih file gambar.').css('color', 'red');
+                    const previousMessage = $(imagePreview).find('p');
+                    if (previousMessage.length) {
+                        previousMessage.remove();
+                    }
+                    $(imagePreview).append(fileTypeErrorMessage);
+                    $('#submitButton').prop('disabled', false);
+                    return;
+                }
+
+                var kotaInput = $('#kota').val();
+                var iklimInput = $('#iklim').val();
+                var phInput = $('#ph').val();
+
+                var suhuInput = await getWeather(kotaInput);
+
+                // Mengatur gambar dan warna teks berdasarkan nilai iklimInput
+                var climateImage, climateColor;
+                if (iklimInput.toLowerCase() === 'musim panas') {
+                    climateImage = "{{ asset('assets/images/ic_summer.svg') }}";
+                    climateColor = "#EAC069";
+                } else if (iklimInput.toLowerCase() === 'musim hujan') {
+                    climateImage = "{{ asset('assets/images/ic_rainy.svg') }}";
+                    climateColor = "#7C95E4";
+                } else {
+                    // Default jika iklimInput tidak cocok dengan kondisi di atas
+                    climateImage = "{{ asset('assets/images/default_image.svg') }}";
+                    climateColor = "#000000";
+                }
+
+                // Set nilai gambar dan warna teks
+                $('#climateTitle').css('color', climateColor);
+                $('#climate').html(iklimInput);
+                $('#climateImage').attr('src', climateImage);
+
+                // Animasi loading
+                const loadingAnimation = $('#loadingAnimation');
+                loadingAnimation.css('display', 'block');
+
+                // Load model
+                const model = await loadModel();
+
+                const reader = new FileReader();
+                reader.onload = async (e) => {
+                    const image = new Image();
+                    image.src = e.target.result;
+
+                    image.onload = async () => {
+                        const canvas = document.createElement('canvas');
+                        canvas.width = 150;
+                        canvas.height = 150;
+                        const ctx = canvas.getContext('2d');
+                        ctx.drawImage(image, 0, 0, 150, 150);
+
+                        const tensor = tf.browser.fromPixels(canvas).toFloat().div(255);
+                        const expanded = tensor.expandDims(0);
+
+                        const predictions = await model.predict(expanded).data();
+                        const classList = ['Tanah Humus', 'Tanah vulkanik'];
+
+                        const maxPrediction = Math.max(...predictions);
+                        const predictedClass = classList[predictions.indexOf(maxPrediction)];
+                        const maxPredictionPercentage = (maxPrediction * 100).toFixed(2);
+
+                        console.log('Prediction:', predictions);
+                        console.log('Max Prediction:', maxPrediction);
+
+                        const recommendation = await getFinalResult(predictedClass, iklimInput, suhuInput);
+
+                        resultHeaderElement.textContent = 'Hasil: ';
+                        predictionElement.textContent = `${predictedClass}`;
+                        accuracyElement.textContent = `Akurasi: ${maxPredictionPercentage}%`;
+                        climateElement.textContent = `${iklimInput}`;
+                        temperatureElement.textContent = `${suhuInput}℃`;
+                        recommendationElement.style.whiteSpace = 'pre-line';
+                        recommendationElement.textContent = `${recommendation}`
+
+                        parameterBox.addClass('parameter-hidden');
+                        resultBox.removeClass('parameter-hidden');
+
+                        // Hide animasi loading
+                        loadingAnimation.css('display', 'none');
+                        $('#submitButton').prop('disabled', false);
+                    };
+                };
+
+                reader.readAsDataURL(file);
+            } catch (error) {
+                console.error('Error during analysis:', error);
+                alert('Terjadi kesalahan saat melakukan analisis. Mohon coba lagi dengan merefresh halaman.');
+                $('#submitButton').prop('disabled', false);
+            }
         });
 
 
