@@ -6,7 +6,7 @@ TerraScan adalah sebuah aplikasi berbasis web dan mobile yang memberikan solusi 
 
 ## TerraScan by Galaxy Team
 
-###Anggota Tim:
+### Anggota Tim:
 - **Algyon Faras**
 - **Adli Farizi**
 - **Raihan Yuanda**
