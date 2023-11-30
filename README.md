@@ -9,14 +9,14 @@ TerraScan adalah sebuah aplikasi berbasis web dan mobile yang memberikan solusi 
 ### Anggota Tim:
 - **Algyon Faras**           **(J0403221012)**
 - **Adli Farizi**            **(J0403221030)**
-- **Daffarizqy Prastowiyono****(J0403221034)**
+- **Daffarizqy Prastowiyono** **(J0403221034)**
 - **Raihan Yuanda**           **(J0403221104)**
 - **Muhammad Farhan Fahrezy** **(J0403221155)**
 
 
 ## Teknologi yang ada pada TerraScan 
 
-- **Framework Laravel*
+- **Framework Laravel**
 - **Responsive Web**
 - **Chat :Pusher**
 - **Send Email: SMTP Gmail**
